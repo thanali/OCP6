@@ -1,15 +1,15 @@
 
-
 /**
- * Fonction fetch de base
+ * Méthode fetch générale
  * @param {string} url 
- * @param {string} method
- * @returns {[Promise]}
+ * @param {string} options facultatif
+ * @returns {JSON}
  */
-export async function fetchJSON (url, method) {
-    const r = await fetch(url, {headers: {Method: method, Accept: 'application/json'}})
-    if (r.ok) {
-        return r.json()
+export async function fetchJSON (url, options = {}) {
+    const headers = {Accept: 'application/json', ...options.headers} // Récupère les options en place dans headers et ajoute Accept
+    const r = await fetch(url, {...options,headers})
+    if (!r.ok) {
+        throw new Error('Erreur serveur', {cause: r})
     }
-    throw new Error(`Erreur serveur, cause: ${r}`)
+    return r.json()
 }
