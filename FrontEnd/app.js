@@ -1,6 +1,5 @@
 import { fetchJSON } from "./functions/api.js"
-import { layoutContent } from "./functions/dom.js"
-
+import { GalleryContent } from "./components/portfolio.js"
 
 // URL générale de l'API
 const url = 'http://localhost:5678/api'
@@ -11,7 +10,7 @@ try {
 
     // Boucle dans l'API pour compléter la galerie
     for (let work of works) {
-        document.querySelector('.gallery').append(layoutContent(work))
+        new GalleryContent(work)
     }
 
 } catch (e) {

@@ -52,6 +52,7 @@ body {
 	margin:auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
+	background: #E5E5E5;
 }
 header {
 	display: flex;
@@ -142,13 +143,37 @@ li:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 1.2em;
-	color: rgb(254, 218, 218);
-	background-color: rgb(244, 84, 84);
-	height: 4vw;
+	font-size: 1.3em;
+	color: rgb(255, 0, 0);
+	font-weight: 800;
+	background-color: rgb(255, 165, 165);
+	border-radius: 10px;
+	height: 5vw;
 	margin: 2vw 0;
 }
 /* Fin du message d'alerte */
+
+/* Filtres */
+.filters {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin: 4.5vw 0 4vw;
+}
+.btn {
+	border: 1px solid #1D6154;
+	background: #E5E5E5;
+	border-radius: 60px;
+	color: #1D6154;
+	font-size: 1rem;
+	font-weight: 700;
+	padding: 0.6em 1.8em;
+}
+.btn-active {
+	background: #1D6154;
+	color: #E5E5E5;
+}
+/* Fin Filtres */
 
 #contact {
 	width: 50%;
