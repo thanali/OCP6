@@ -1,15 +1,22 @@
 
 /**
- * Méthode fetch générale
- * @param {string} url 
- * @param {string} options facultatif
+ * @param {string} log 
  * @returns {JSON}
  */
-export async function fetchJSON (url, options = {}) {
-    const headers = {Accept: 'application/json', ...options.headers} // Récupère les options en place dans headers et ajoute Accept
-    const r = await fetch(url, {...options,headers})
-    if (!r.ok) {
-        throw new Error('Erreur serveur', {cause: r})
+export async function fetchJSON (log) {
+    try {
+        const headers = {Accept: 'application/json'}
+        const r = await fetch('http://localhost:5678/api/' + log, {headers})
+        if (!r.ok) {
+            throw new Error('Erreur serveur', {cause: r})
+        }
+        return r.json()
+
+    } catch (e) {
+        // Si fetch ne fonctionne pas, message d'erreur avec la création d'un nouveau bloc
+        const alert = document.createElement('div')
+        alert.setAttribute('class', 'alert')
+        alert.innerText = `Impossible de charger les éléments : ${e}`
+        document.querySelector('main').prepend(alert)
     }
-    return r.json()
 }

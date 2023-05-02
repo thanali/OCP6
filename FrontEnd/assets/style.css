@@ -173,6 +173,10 @@ li:hover {
 	background: #1D6154;
 	color: #E5E5E5;
 }
+
+.no-show {
+	display: none;
+}
 /* Fin Filtres */
 
 #contact {
