@@ -1,7 +1,7 @@
 
 /**
  * @param {string} log 
- * @returns {JSON}
+ * @returns {ObjectList|Element}
  */
 export async function fetchJSON (log) {
     try {

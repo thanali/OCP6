@@ -1,0 +1,43 @@
+
+@mixin btn {
+    font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: $color-primary;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+    cursor: pointer;
+}
+
+@mixin form {
+    width: 50%;
+    margin: auto;
+
+    & > * {
+        text-align: center;
+    }
+    & h2{
+        margin-bottom: 20px;
+    }
+    & form {
+        text-align: left;
+        margin-top:30px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    & input {
+        height: 50px;
+        font-size: 1.2em;
+        border: none;
+        box-shadow: $box-shadow;
+    }
+    & label {
+        margin: 2em 0 1em 0;
+    }
+    input[type="submit"]{
+        @include btn
+    }
+}

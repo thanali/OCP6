@@ -1,0 +1,94 @@
+
+
+#introduction {
+	display: flex;
+	align-items: center;
+}
+#introduction figure {
+	flex: 1
+}
+#introduction img {
+	display: block;
+	margin: auto;
+	width: 80%;
+}
+
+#introduction article {
+	flex: 1
+}
+#introduction h2 {
+	margin-bottom: 1em;
+}
+
+#introduction p {
+	margin-bottom: 0.5em;
+}
+#portfolio h2 {
+	text-align: center;
+	margin-bottom: 1em;
+}
+.gallery {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+}
+
+.gallery img {
+	width: 100%;
+}
+
+/* Filtres */
+.filters {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin: 4.5vw 0 4vw;
+
+	& .btn {
+		border: 1px solid $color-primary;
+		background: $color-background;
+		border-radius: 60px;
+		color: $color-primary;
+		font-size: 1rem;
+		font-weight: 700;
+		padding: 0.6em 1.8em;
+		cursor: pointer;
+	}
+	& .btn-active {
+		background: $color-primary;
+		color: $color-background;
+		box-shadow: $box-shadow;
+	}
+}
+
+/* Fin Filtres */
+
+#contact {
+	@include form;
+
+	& textarea {
+        border: none;
+        box-shadow: $box-shadow;
+    }
+}
+
+
+
+
+/* Classe JS */
+/* Message d'alerte si chargement impossible des images */
+.alert {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.3em;
+	color: rgb(255, 0, 0);
+	font-weight: 800;
+	background-color: rgb(255, 165, 165);
+	border-radius: 10px;
+	height: 5vw;
+	margin: 2vw 0;
+}
+/* Fin du message d'alerte */

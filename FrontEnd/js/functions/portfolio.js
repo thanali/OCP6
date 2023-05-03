@@ -1,4 +1,5 @@
-import { fetchJSON } from "../functions/api.js"
+import { fetchJSON } from "./api.js"
+
 
 /**
  * Mise en place de la gallerie
@@ -45,13 +46,13 @@ export function createFilter(categories) {
     // Sélection de tous les boutons du DOM (dynamiques et statique)
     // Ajout de l'événement au click
     filters.querySelectorAll('.btn')
-    .forEach(b => b.addEventListener('click', (e) => filterEvent(e)))
+        .forEach(b => b.addEventListener('click', (e) => filterEvent(e)))
 }
 
 /**
  * Evènement lors du click sur bouton filtre
  * @param {PointEvent} e 
- * @returns {HTMLElement} MàJ de la galerie
+ * @returns {Element} MàJ de la galerie
  */
 async function filterEvent(e) {
     // Retire action par défault du bouton

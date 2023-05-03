@@ -1,0 +1,22 @@
+
+.main-login{
+    @include form;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & #login-window{
+        width: 380px;
+    }
+
+    & a {
+        text-decoration: underline;
+    }
+}
+
+.footer-login {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

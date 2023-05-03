@@ -1,6 +1,8 @@
 
-import { fetchJSON } from "./functions/api.js"
-import { createFilter, galleryContent} from "./components/portfolio.js"
+import { fetchJSON } from "./js/functions/api.js"
+import { createFilter, galleryContent } from "./js/functions/portfolio.js"
+
+
 
 // Création de la galerie
 let works = await fetchJSON('works')
