@@ -14,3 +14,7 @@ let categories = await fetchJSON('categories')
 // Création des boutons à partir des noms des catégories
 createFilter(categories)
 
+
+
+
+

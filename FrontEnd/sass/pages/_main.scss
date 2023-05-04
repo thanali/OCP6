@@ -1,4 +1,8 @@
 
+header,
+main {
+	padding: 0 30px;
+}
 
 #introduction {
 	display: flex;
@@ -73,22 +77,3 @@
         box-shadow: $box-shadow;
     }
 }
-
-
-
-
-/* Classe JS */
-/* Message d'alerte si chargement impossible des images */
-.alert {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.3em;
-	color: rgb(255, 0, 0);
-	font-weight: 800;
-	background-color: rgb(255, 165, 165);
-	border-radius: 10px;
-	height: 5vw;
-	margin: 2vw 0;
-}
-/* Fin du message d'alerte */
