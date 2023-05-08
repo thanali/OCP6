@@ -93,6 +93,14 @@ h2 {
   color: #1D6154;
 }
 
+i {
+  margin-right: 10px;
+}
+
+.edit-content {
+  cursor: pointer;
+}
+
 header,
 main {
   max-width: 1140px;
@@ -122,6 +130,10 @@ h1 > span {
   text-transform: uppercase;
 }
 
+.insta {
+  width: 1.2em;
+}
+
 footer {
   background: #fff;
   margin: 0 auto;
@@ -149,8 +161,46 @@ footer nav ul {
 }
 
 /* Fin du message d'alerte */
-.input-error {
-  border: 2px solid rgb(255, 0, 0);
+.hidden {
+  visibility: hidden;
+}
+
+.none {
+  display: none;
+}
+
+.edition-banner {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: #000000;
+  color: #fff;
+  padding: 0.6rem;
+  gap: 1rem;
+}
+.edition-banner button {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  padding: 0.6em 1.8em;
+  width: 180px;
+  text-align: center;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  margin: 0;
+  width: auto;
+  padding: 1em 1.8em;
+  font-family: "Work Sans";
+  font-weight: 500;
+  background: #fff;
+  color: #000000;
 }
 
 header,
@@ -162,32 +212,34 @@ main {
   display: flex;
   align-items: center;
 }
-
 #introduction figure {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
   flex: 1;
 }
-
-#introduction img {
+#introduction img, #introduction .edit-content {
   display: block;
   margin: auto;
   width: 80%;
 }
-
 #introduction article {
   flex: 1;
 }
-
 #introduction h2 {
   margin-bottom: 1em;
 }
-
 #introduction p {
   margin-bottom: 0.5em;
 }
 
-#portfolio h2 {
-  text-align: center;
-  margin-bottom: 1em;
+#portfolio .title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  margin-bottom: 4em;
+  margin-left: 12.5vw;
 }
 
 .gallery {
@@ -196,6 +248,7 @@ main {
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  padding-top: 3rem;
 }
 
 .gallery img {
@@ -207,7 +260,6 @@ main {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin: 4.5vw 0 4vw;
 }
 .filters .btn {
   border: 1px solid #1D6154;
@@ -257,8 +309,10 @@ main {
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
+  padding: 0.6em 1.8em;
   width: 180px;
   text-align: center;
+  border: none;
   border-radius: 60px;
   cursor: pointer;
 }
@@ -301,8 +355,10 @@ main {
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
+  padding: 0.6em 1.8em;
   width: 180px;
   text-align: center;
+  border: none;
   border-radius: 60px;
   cursor: pointer;
 }
@@ -313,8 +369,12 @@ main {
   text-decoration: underline;
 }
 
+input {
+  padding: 0 16px;
+}
+
 .footer-login {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }

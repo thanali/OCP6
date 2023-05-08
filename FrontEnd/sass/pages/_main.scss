@@ -1,4 +1,29 @@
 
+// Bloc affiché au log in
+.edition-banner {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+	background: #000000;
+	color: #fff;
+	padding: 0.6rem;
+	gap: 1rem;
+	& button {
+		@include btn;
+		margin: 0;
+		width: auto;
+		padding: 1em 1.8em;
+		font-family: 'Work Sans';
+		font-weight: 500;
+		background: #fff;
+		color: #000000;
+	}
+}
+
 header,
 main {
 	padding: 0 30px;
@@ -7,29 +32,42 @@ main {
 #introduction {
 	display: flex;
 	align-items: center;
-}
-#introduction figure {
-	flex: 1
-}
-#introduction img {
-	display: block;
-	margin: auto;
-	width: 80%;
+
+	& figure {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		flex: 1;
+	}
+
+	& img, .edit-content {
+		display: block;
+		margin: auto;
+		width: 80%;
+	}
+
+	& article {
+		flex: 1
+	}
+
+	& h2 {
+		margin-bottom: 1em;
+	}
+
+	& p {
+		margin-bottom: 0.5em;
+	}
 }
 
-#introduction article {
-	flex: 1
-}
-#introduction h2 {
-	margin-bottom: 1em;
-}
-
-#introduction p {
-	margin-bottom: 0.5em;
-}
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
+#portfolio {
+	& .title {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 2em;
+		margin-bottom: 4em;
+		margin-left: 12.5vw;
+	}
 }
 .gallery {
 	width: 100%;
@@ -37,6 +75,7 @@ main {
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
+	padding-top: 3rem;
 }
 
 .gallery img {
@@ -48,7 +87,6 @@ main {
 	display: flex;
 	justify-content: center;
 	gap: 1rem;
-	margin: 4.5vw 0 4vw;
 
 	& .btn {
 		border: 1px solid $color-primary;

@@ -15,8 +15,12 @@
     }
 }
 
+input {
+    padding: 0 16px;
+}
+
 .footer-login {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }

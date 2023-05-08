@@ -5,6 +5,7 @@ const alertMsg = document.querySelector('p')
 const email = document.querySelector('#email')
 const password = document.querySelector('#password')
 
+
 loginSubmit.addEventListener('click', (e) => {
     e.preventDefault()
     submit()
@@ -24,7 +25,7 @@ async function submit() {
 async function fetchLogin() {
 
     try {
-        const r = await fetch("http://localhost:5678/api/users/login", {
+        const r = await fetch("http://" + window.location.hostname + ":5678/api/users/login", {
             method: "POST",
             headers: { 
                 Accept: "application/json",
@@ -42,16 +43,11 @@ async function fetchLogin() {
             // Ajout class CSS
             alertMsg.classList.add('alert')
             sessionStorage.setItem('token', undefined)
-            // Ajout état de login
-            sessionStorage.setItem('login', false)
         } else { 
             // Si réussite
             const response = await r.json()
             // Transforme reponse en string pour navigateur
-            sessionStorage.setItem('token', JSON.stringify(response))
-            sessionStorage.clear('token')
-            // Ajout état de login
-            sessionStorage.setItem('login', true)
+            sessionStorage.setItem('token', JSON.stringify(response.token))
             // Redirection vers page d'accueil
             window.location.href = './index.html'
         }
