@@ -1,5 +1,9 @@
 import { fetchJSON } from "./api.js"
 
+// npm audit fix
+// npm audit fix --force
+// npm i multer@latest
+
 /**
  * Mise en place du contenu de la modale galerie
  * @param {string} API
@@ -23,7 +27,7 @@ export function modalGalleryContent(works) {
 
         const icon = layout.querySelector('.icon')
         icon.addEventListener('click', (e) => {
-            // console.log(e.target.parentNode.id)
+            console.log(e.target.parentNode.id)
             deleteWork(e.target.parentNode.id)
         })
 
@@ -41,4 +45,7 @@ async function deleteWork(id) {
         },
         method: "DELETE",
     })
+    let works = await fetchJSON('works')
+    document.querySelector('.modal-gallery-content').innerHTML = ""
+    modalGalleryContent(works)
 }

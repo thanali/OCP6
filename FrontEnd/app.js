@@ -7,12 +7,11 @@ import { createFilter, galleryContent } from "./js/functions/portfolio.js"
 
 // Création de la galerie
 let works = await fetchJSON('works')
-// Boucle dans l'API pour compléter la galerie
 galleryContent(works)
+modalGalleryContent(works)
 
 // Création des boutons filtres
 let categories = await fetchJSON('categories')
-// Création des boutons à partir des noms des catégories
 createFilter(categories)
 
 // Affichage page index après login
@@ -54,4 +53,4 @@ modal1.addEventListener('click', () => modal1.close())
 // Évite l'appel au listener sur modal1 quand on clique sur le contenu
 modalGallery.addEventListener('click', (e) => e.stopPropagation())
 
-modalGalleryContent(works)
+
