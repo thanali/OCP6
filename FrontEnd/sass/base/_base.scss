@@ -89,10 +89,12 @@ h2{
 	color: $color-primary
 }
 
-i {
-	margin-right: 10px
-}
-
 .edit-content {
 	cursor: pointer;
+	display: flex;
+	gap: 0.5em;
+}
+
+.hidden {
+	visibility: hidden;
 }

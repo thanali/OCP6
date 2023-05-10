@@ -93,12 +93,14 @@ h2 {
   color: #1D6154;
 }
 
-i {
-  margin-right: 10px;
-}
-
 .edit-content {
   cursor: pointer;
+  display: flex;
+  gap: 0.5em;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 header,
@@ -142,8 +144,14 @@ footer {
 footer nav ul {
   display: flex;
   justify-content: flex-end;
-  max-width: 1140px;
+  margin-right: 8vw;
   padding: 2em;
+}
+
+.footer-login {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Message d'alerte si chargement impossible des images */
@@ -161,12 +169,84 @@ footer nav ul {
 }
 
 /* Fin du message d'alerte */
-.hidden {
-  visibility: hidden;
+#modal1 {
+  position: relative;
+  width: 45%;
+  border: none;
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+}
+#modal1::backdrop {
+  background: rgba(0, 0, 0, 0.4);
 }
 
-.none {
-  display: none;
+.modal-gallery-close {
+  position: absolute;
+  right: 1.5em;
+  top: 1.5em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.modal-gallery h3 {
+  font-size: 1.9em;
+  padding: 1.8em 0 1em;
+}
+.modal-gallery hr {
+  height: 1px;
+  background: black;
+  width: 75%;
+  border: none;
+}
+.modal-gallery-add {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  padding: 0.6rem 1.8rem;
+  width: 12rem;
+  text-align: center;
+  border: none;
+  border-radius: 60px;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 1em auto;
+}
+.modal-gallery-remove {
+  font-weight: 400;
+  color: #D65353;
+  margin: 0.5em 0 2em;
+  cursor: pointer;
+}
+
+.modal-gallery-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 0.5em;
+  grid-row-gap: 1em;
+  padding: 2rem 4em 4em;
+  text-align: left;
+}
+.modal-gallery-content img {
+  width: 100%;
+}
+.modal-gallery-content figure {
+  position: relative;
+}
+.modal-gallery-content figure .icon {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  color: #fff;
+  background: black;
+  font-size: 0.7em;
+  padding: 0.3em;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.modal-gallery-content figure figcaption {
+  cursor: pointer;
 }
 
 .edition-banner {
@@ -188,11 +268,12 @@ footer nav ul {
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
-  padding: 0.6em 1.8em;
-  width: 180px;
+  padding: 0.6rem 1.8rem;
+  width: 12rem;
   text-align: center;
   border: none;
   border-radius: 60px;
+  white-space: nowrap;
   cursor: pointer;
   margin: 0;
   width: auto;
@@ -219,12 +300,16 @@ main {
   flex: 1;
 }
 #introduction img, #introduction .edit-content {
-  display: block;
   margin: auto;
   width: 80%;
 }
 #introduction article {
   flex: 1;
+  position: relative;
+}
+#introduction article .edit-content {
+  position: absolute;
+  top: -5vw;
 }
 #introduction h2 {
   margin-bottom: 1em;
@@ -250,7 +335,6 @@ main {
   grid-row-gap: 20px;
   padding-top: 3rem;
 }
-
 .gallery img {
   width: 100%;
 }
@@ -309,11 +393,12 @@ main {
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
-  padding: 0.6em 1.8em;
-  width: 180px;
+  padding: 0.6rem 1.8rem;
+  width: 12rem;
   text-align: center;
   border: none;
   border-radius: 60px;
+  white-space: nowrap;
   cursor: pointer;
 }
 #contact textarea {
@@ -355,11 +440,12 @@ main {
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
-  padding: 0.6em 1.8em;
-  width: 180px;
+  padding: 0.6rem 1.8rem;
+  width: 12rem;
   text-align: center;
   border: none;
   border-radius: 60px;
+  white-space: nowrap;
   cursor: pointer;
 }
 .main-login #login-window {
@@ -371,12 +457,6 @@ main {
 
 input {
   padding: 0 16px;
-}
-
-.footer-login {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

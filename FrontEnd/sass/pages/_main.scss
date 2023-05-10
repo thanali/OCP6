@@ -41,13 +41,17 @@ main {
 	}
 
 	& img, .edit-content {
-		display: block;
 		margin: auto;
 		width: 80%;
 	}
 
 	& article {
-		flex: 1
+		flex: 1;
+		position: relative;
+		& .edit-content{
+			position: absolute;
+			top: -5vw;
+		}
 	}
 
 	& h2 {
@@ -76,10 +80,10 @@ main {
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 	padding-top: 3rem;
-}
 
-.gallery img {
-	width: 100%;
+	& img {
+		width: 100%;
+	}
 }
 
 /* Filtres */

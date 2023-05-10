@@ -5,11 +5,12 @@
 	color: white;
 	background-color: $color-primary;
 	margin : 2em auto;
-    padding: 0.6em 1.8em;
-	width: 180px;
+    padding: 0.6rem 1.8rem;
+	width: 12rem;
 	text-align: center;
     border: none;
 	border-radius: 60px;
+    white-space: nowrap;
     cursor: pointer;
 }
 

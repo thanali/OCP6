@@ -5,6 +5,12 @@ footer {
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	max-width: 1140px;
+	margin-right: 8vw;
 	padding: 2em;
+}
+
+.footer-login {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

@@ -12,7 +12,7 @@ export function galleryContent(works) {
 
         // Ajout des attributs et contenus
         const figure = layout.querySelector('figure')
-        figure.setAttribute('id', `work-${work.id}`)
+        figure.setAttribute('id', work.id)
         figure.dataset.categoryId = work.categoryId
 
         const img = layout.querySelector('img')
@@ -20,7 +20,10 @@ export function galleryContent(works) {
         img.alt = work.title
 
         const figcaption = layout.querySelector('figcaption')
-        figcaption.innerText = work.title    
+        figcaption.innerText = work.title  
+        
+        const icon = layout.querySelector('.icon')
+        icon.style = "display: none"
 
         // Récupère le parent de l'objet
         document.querySelector('.gallery').append(figure)
