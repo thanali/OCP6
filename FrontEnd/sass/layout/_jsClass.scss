@@ -5,12 +5,12 @@
 	justify-content: center;
 	align-items: center;
 	font-size: 1rem;
-	color: rgb(255, 0, 0);
+	color: $color-background;
 	font-weight: 800;
-	background-color: rgb(255, 183, 183);
+	background-color: rgb(255, 149, 149);
 	border-radius: 10px;
-	padding: 2vw;
-	margin: 2vw 0;
+	padding: 1rem;
+	margin: 1vw 0;
 }
 /* Fin du message d'alerte */
 

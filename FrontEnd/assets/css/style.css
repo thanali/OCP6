@@ -160,16 +160,17 @@ footer nav ul {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  color: rgb(255, 0, 0);
+  color: #fffef6;
   font-weight: 800;
-  background-color: rgb(255, 183, 183);
+  background-color: rgb(255, 149, 149);
   border-radius: 10px;
-  padding: 2vw;
-  margin: 2vw 0;
+  padding: 1rem;
+  margin: 1vw 0;
 }
 
 /* Fin du message d'alerte */
-#modal1 {
+#modal1,
+#modal2 {
   position: relative;
   width: 45%;
   border: none;
@@ -177,11 +178,12 @@ footer nav ul {
   background: #fff;
   text-align: center;
 }
-#modal1::backdrop {
+#modal1::backdrop,
+#modal2::backdrop {
   background: rgba(0, 0, 0, 0.4);
 }
 
-.modal-gallery-close {
+.modal-gallery__close {
   position: absolute;
   right: 1.5em;
   top: 1.5em;
@@ -197,8 +199,9 @@ footer nav ul {
   background: black;
   width: 75%;
   border: none;
+  background: #B3B3B3;
 }
-.modal-gallery-add {
+.modal-gallery__add {
   font-family: "Syne";
   font-weight: 700;
   color: white;
@@ -213,7 +216,7 @@ footer nav ul {
   cursor: pointer;
   margin: 1em auto;
 }
-.modal-gallery-remove {
+.modal-gallery__remove {
   font-weight: 400;
   color: #D65353;
   margin: 0.5em 0 2em;
@@ -225,7 +228,7 @@ footer nav ul {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 0.5em;
   grid-row-gap: 1em;
-  padding: 2rem 4em 4em;
+  margin: 2em 4em 4em;
   text-align: left;
 }
 .modal-gallery-content img {
@@ -247,6 +250,119 @@ footer nav ul {
 }
 .modal-gallery-content figure figcaption {
   cursor: pointer;
+}
+
+.modal-add-picture__close {
+  position: absolute;
+  right: 1.5em;
+  top: 1.5em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.modal-add-picture h3 {
+  font-size: 1.9em;
+  padding: 1.8em 0 1em;
+}
+.modal-add-picture hr {
+  height: 1px;
+  background: black;
+  width: 75%;
+  border: none;
+  background: #B3B3B3;
+}
+.modal-add-picture__return {
+  position: absolute;
+  left: 1.5em;
+  top: 1.5em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.modal-add-picture .add-element {
+  position: relative;
+  background: #E8F1F6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 2em 4em 0;
+}
+.modal-add-picture .add-element p {
+  font-size: 0.7em;
+  padding-bottom: 2em;
+}
+.modal-add-picture .add-element img {
+  width: 20%;
+  opacity: 0.1;
+  padding-top: 2em;
+}
+.modal-add-picture .add-element__label {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  padding: 0.6rem 1.8rem;
+  width: 12rem;
+  text-align: center;
+  border: none;
+  border-radius: 60px;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #CBD6DC;
+  color: #306685;
+  font-family: "Work sans";
+  font-weight: 500;
+  width: auto;
+  margin: 1em auto 0.5em;
+  cursor: pointer;
+}
+.modal-add-picture .add-element__input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#modal2-form {
+  margin: 2em 4em 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+#modal2-form input,
+#modal2-form select {
+  height: 50px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#modal2-form select {
+  margin-bottom: 2em;
+}
+#modal2-form label {
+  margin: 2em 0 1em 0;
+}
+#modal2-form hr {
+  width: 100%;
+}
+#modal2-form button {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  padding: 0.6rem 1.8rem;
+  width: 12rem;
+  text-align: center;
+  border: none;
+  border-radius: 60px;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #A7A7A7;
 }
 
 .edition-banner {

@@ -16,7 +16,6 @@ export function modalGalleryContent(works) {
         // Ajout des attributs et contenus
         const figure = layout.querySelector('figure')
         figure.setAttribute('id', work.id)
-        figure.dataset.categoryId = work.categoryId
 
         const img = layout.querySelector('img')
         img.src = work.imageUrl
@@ -27,7 +26,7 @@ export function modalGalleryContent(works) {
 
         const icon = layout.querySelector('.icon')
         icon.addEventListener('click', (e) => {
-            console.log(e.target.parentNode.id)
+            // console.log(e.target.parentNode.id)
             deleteWork(e.target.parentNode.id)
         })
 

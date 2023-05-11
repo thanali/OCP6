@@ -1,10 +1,6 @@
 import { fetchJSON } from "./api.js"
 
 
-/**
- * Mise en place de la gallerie
- * @param {string} API
- */
 export function galleryContent(works) {
     for (let work of works) {
         // Recuperer template HTML d'un élément de la galerie et les enfants
@@ -30,10 +26,7 @@ export function galleryContent(works) {
     }
 }
 
-/**
- * Mise en place des boutons de filtrage de la galerie
- * @param {string} API
- */
+
 export function createFilter(categories) {
     const filters = document.querySelector('.filters')
     // Génération des boutons en fonction des catégories de l'API
@@ -56,11 +49,7 @@ export function createFilter(categories) {
         }))
 }
 
-/**
- * Evènement lors du click sur bouton filtre
- * @param {PointEvent} e 
- * @returns {Element} MàJ de la galerie
- */
+
 async function filterEvent(e) {
 
     // Mise en place de la classe CSS sur le bouton actif

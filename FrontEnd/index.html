@@ -33,15 +33,39 @@
 	<!-- Modal de modification de la galerie -->
 	<dialog id="modal1">
 		<div class="modal-gallery">
-			<p class="modal-gallery-close"><i class="fa-solid fa-xmark"></i></p>
+			<i class="modal-gallery__close fa-solid fa-xmark"></i>
 			<h3>Galerie photo</h3>
 			<div class="modal-gallery-content"></div>
 			<hr>
-			<button class="modal-gallery-add">Ajouter une photo</button><br>
-			<p class="modal-gallery-remove">Supprimer la galerie</p>
+			<button type="submit" class="modal-gallery__add">Ajouter une photo</button><br>
+			<p class="modal-gallery__remove">Supprimer la galerie</p>
 		</div>
 	</dialog>
 
+	<!-- Modale d'ajout de photos -->
+	<dialog id="modal2">
+		<div class="modal-add-picture">
+			<i class="modal-add-picture__return fa-solid fa-arrow-left"></i>
+			<i class="modal-add-picture__close fa-solid fa-xmark"></i>
+			<h3>Ajout photo</h3>
+			<div class="add-element">
+				<img src="./assets/icons/picture.png" alt="icone image">
+				<label for="add-element" class="add-element__label">+ Ajouter photo</label>
+				<input type="file" accept=".png, .jpg" class="add-element__input" id="add-element" name="add-element">
+				<p>jpg, png : 4mo max</p>
+			</div>
+			<form action="post" id="modal2-form">
+				<label for="title">Titre</label>
+				<input type="text" name="title" id="title">
+				<label for="category">Catégories</label>
+				<select name="category" id="category">
+					<option value=""> </option>
+				</select>
+				<hr>
+				<button form="modal2-form" type="submit" class="form-submit">Valider</button><br>
+			</form>
+		</div>
+	</dialog>
 
 	<main>
 		<section id="introduction">
