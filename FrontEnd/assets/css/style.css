@@ -103,6 +103,22 @@ h2 {
   visibility: hidden;
 }
 
+/* Message d'alerte si chargement impossible des images */
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  color: #fffef6;
+  font-weight: 800;
+  background-color: rgb(255, 149, 149);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1vw 0;
+}
+
+/* Fin du message d'alerte */
 header,
 main {
   max-width: 1140px;
@@ -154,21 +170,6 @@ footer nav ul {
   width: 100%;
 }
 
-/* Message d'alerte si chargement impossible des images */
-.alert {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  color: #fffef6;
-  font-weight: 800;
-  background-color: rgb(255, 149, 149);
-  border-radius: 10px;
-  padding: 1rem;
-  margin: 1vw 0;
-}
-
-/* Fin du message d'alerte */
 #modal1,
 #modal2 {
   position: relative;
@@ -277,26 +278,37 @@ footer nav ul {
   font-size: 1.5em;
   cursor: pointer;
 }
-.modal-add-picture .add-element {
+
+#modal2-form {
+  margin: 1.8em 4em 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+#modal2-form .add-image {
   position: relative;
   background: #E8F1F6;
+  height: 170px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  margin: 2em 4em 0;
+  margin-bottom: 1em;
 }
-.modal-add-picture .add-element p {
+#modal2-form .add-image__input {
+  display: none;
+}
+#modal2-form .add-image__supported {
   font-size: 0.7em;
-  padding-bottom: 2em;
+  margin-bottom: 2em;
 }
-.modal-add-picture .add-element img {
+#modal2-form .add-image__icon {
   width: 20%;
   opacity: 0.1;
   padding-top: 2em;
 }
-.modal-add-picture .add-element__label {
+#modal2-form .add-image__label {
   font-family: "Syne";
   font-weight: 700;
   color: white;
@@ -317,21 +329,20 @@ footer nav ul {
   margin: 1em auto 0.5em;
   cursor: pointer;
 }
-.modal-add-picture .add-element__input {
-  position: absolute;
-  left: 0;
-  top: 0;
+#modal2-form .add-image output {
   height: 100%;
-  width: 100%;
-  opacity: 0;
-  cursor: pointer;
+  position: absolute;
+  border-radius: 5px;
 }
-
-#modal2-form {
-  margin: 2em 4em 0;
-  text-align: left;
+#modal2-form .add-image output .image {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+#modal2-form .add-image output .image img {
+  object-fit: cover;
 }
 #modal2-form input,
 #modal2-form select {
@@ -339,12 +350,13 @@ footer nav ul {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  padding: 0 1em;
 }
 #modal2-form select {
   margin-bottom: 2em;
 }
 #modal2-form label {
-  margin: 2em 0 1em 0;
+  margin: 1em 0 0.6em 0;
 }
 #modal2-form hr {
   width: 100%;
@@ -363,6 +375,10 @@ footer nav ul {
   white-space: nowrap;
   cursor: pointer;
   background: #A7A7A7;
+}
+#modal2-form button:hover {
+  background: #1D6154;
+  transition: 200ms;
 }
 
 .edition-banner {
@@ -415,7 +431,8 @@ main {
   gap: 1em;
   flex: 1;
 }
-#introduction img, #introduction .edit-content {
+#introduction img,
+#introduction .edit-content {
   margin: auto;
   width: 80%;
 }

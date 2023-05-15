@@ -12,7 +12,8 @@
 	color: #fff;
 	padding: 0.6rem;
 	gap: 1rem;
-	& button {
+	
+	button {
 		@include btn;
 		margin: 0;
 		width: auto;
@@ -33,38 +34,40 @@ main {
 	display: flex;
 	align-items: center;
 
-	& figure {
+	figure {
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
 		flex: 1;
 	}
 
-	& img, .edit-content {
+	img,
+	.edit-content {
 		margin: auto;
 		width: 80%;
 	}
 
-	& article {
+	article {
 		flex: 1;
 		position: relative;
-		& .edit-content{
+
+		.edit-content{
 			position: absolute;
 			top: -5vw;
 		}
 	}
 
-	& h2 {
+	h2 {
 		margin-bottom: 1em;
 	}
 
-	& p {
+	p {
 		margin-bottom: 0.5em;
 	}
 }
 
 #portfolio {
-	& .title {
+	.title {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -81,7 +84,7 @@ main {
 	grid-row-gap: 20px;
 	padding-top: 3rem;
 
-	& img {
+	img {
 		width: 100%;
 	}
 }
@@ -92,7 +95,7 @@ main {
 	justify-content: center;
 	gap: 1rem;
 
-	& .btn {
+	.btn {
 		border: 1px solid $color-primary;
 		background: $color-background;
 		border-radius: 60px;
@@ -102,7 +105,7 @@ main {
 		padding: 0.6em 1.8em;
 		cursor: pointer;
 	}
-	& .btn-active {
+	.btn-active {
 		background: $color-primary;
 		color: $color-background;
 		box-shadow: $box-shadow;
@@ -114,7 +117,7 @@ main {
 #contact {
 	@include form;
 
-	& textarea {
+	textarea {
         border: none;
         box-shadow: $box-shadow;
     }

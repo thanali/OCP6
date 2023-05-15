@@ -1,13 +1,6 @@
-import { fetchJSON } from "./api.js"
+import { fetchGet } from "./api.js"
 
-// npm audit fix
-// npm audit fix --force
-// npm i multer@latest
 
-/**
- * Mise en place du contenu de la modale galerie
- * @param {string} API
- */
 export function modalGalleryContent(works) {
     for (let work of works) {
         // Recuperer template HTML d'un élément de la galerie et les enfants
@@ -35,6 +28,7 @@ export function modalGalleryContent(works) {
     }
 }
 
+
 async function deleteWork(id) {
     await fetch("http://" + window.location.hostname + `:5678/api/works/${id}`, {
         headers: {
@@ -44,7 +38,17 @@ async function deleteWork(id) {
         },
         method: "DELETE",
     })
-    let works = await fetchJSON('works')
+    let works = await fetchGet('works')
     document.querySelector('.modal-gallery-content').innerHTML = ""
     modalGalleryContent(works)
+}
+
+
+export function modalSelectCategory(categories) {
+    for (let category of categories) {
+        const option = document.createElement('option')
+        option.innerText = category.name
+        option.id = category.id
+        document.querySelector('#category').append(option)
+    }
 }

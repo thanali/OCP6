@@ -1,4 +1,4 @@
-import { fetchJSON } from "./api.js"
+import { fetchGet } from "./api.js"
 
 
 export function galleryContent(works) {
@@ -32,11 +32,9 @@ export function createFilter(categories) {
     // Génération des boutons en fonction des catégories de l'API
     for (let category of categories) {
         const element = document.querySelector('#btn-filter').content.cloneNode(true)
-
         const btnFilter = element.querySelector('.btn')
         btnFilter.innerText = category.name
         btnFilter.dataset.categoryId = category.id
-
         filters.append(btnFilter)
     }
     // Sélection de tous les boutons du DOM (dynamiques et statique)
@@ -51,7 +49,6 @@ export function createFilter(categories) {
 
 
 async function filterEvent(e) {
-
     // Mise en place de la classe CSS sur le bouton actif
     e.currentTarget.parentElement.querySelector('.btn-active')
         .classList.remove('btn-active')
@@ -59,18 +56,19 @@ async function filterEvent(e) {
 
     const btnDataId = e.target.dataset.categoryId
 
-    let works = await fetchJSON('works')
+    let works = await fetchGet('works')
     // Génération d'un tableau de correspondance entre les datas 
     // du bouton et celles des éléments de la galerie
     const filterWorks = works.filter((work) => {
-        return work.categoryId == `${btnDataId}`
+        return work.categoryId == btnDataId
     })
     // Action si le bouton n'a pas de data
     if (!btnDataId) {
         document.querySelector(".gallery").innerHTML = ""
         return galleryContent(works)
+    } else {
+        // Mise en place de la nouvelle galerie
+        document.querySelector(".gallery").innerHTML = ""
+        galleryContent(filterWorks)
     }
-    // Mise en place de la nouvelle galerie
-    document.querySelector(".gallery").innerHTML = ""
-    galleryContent(filterWorks)
 }

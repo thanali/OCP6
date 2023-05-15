@@ -8,7 +8,6 @@
 	<meta name="description" content="">
 	<script src="https://kit.fontawesome.com/94aae47aee.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./assets/css/style.css">
-	<script src="app.js" type="module" defer></script>
 </head>
 <body>
 
@@ -48,13 +47,14 @@
 			<i class="modal-add-picture__return fa-solid fa-arrow-left"></i>
 			<i class="modal-add-picture__close fa-solid fa-xmark"></i>
 			<h3>Ajout photo</h3>
-			<div class="add-element">
-				<img src="./assets/icons/picture.png" alt="icone image">
-				<label for="add-element" class="add-element__label">+ Ajouter photo</label>
-				<input type="file" accept=".png, .jpg" class="add-element__input" id="add-element" name="add-element">
-				<p>jpg, png : 4mo max</p>
-			</div>
 			<form action="post" id="modal2-form">
+				<div class="add-image">
+					<img class="add-image__icon" src="./assets/icons/picture.png" alt="icone image">
+					<label for="add-image__input" class="add-image__label">+ Ajouter photo</label>
+					<input type="file" accept=".png, .jpg" class="add-image__input" id="add-image__input" name="image">
+					<output><div class="preview"></div></output>
+					<p class="add-image__supported">jpg, png : 4mo max</p>
+				</div>
 				<label for="title">Titre</label>
 				<input type="text" name="title" id="title">
 				<label for="category">Catégories</label>
@@ -62,7 +62,7 @@
 					<option value=""> </option>
 				</select>
 				<hr>
-				<button form="modal2-form" type="submit" class="form-submit">Valider</button><br>
+				<button type="submit" class="form-submit">Valider</button><br>
 			</form>
 		</div>
 	</dialog>
@@ -134,5 +134,7 @@
 			</ul>
 		</nav>
 	</footer>
+
+	<script src="app.js" type="module"></script>
 </body>
 </html>

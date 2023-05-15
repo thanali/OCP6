@@ -1,7 +1,7 @@
 
 #modal1,
 #modal2 {
-    @include modal
+    @include modal;
 }
 
 // Modal1
@@ -65,22 +65,35 @@
         font-size: 1.5em;
         cursor: pointer;
     }
+}
 
-    .add-element {
+#modal2-form {
+    margin: 1.8em 4em 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+    .add-image {
         position: relative;
         background: #E8F1F6;
+        height: 170px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         border-radius: 5px;
-        margin: 2em 4em 0;
+        margin-bottom: 1em;
 
-        p{
-            font-size: 0.7em;
-            padding-bottom: 2em;
+        &__input {
+            display: none;
         }
-        img {
+
+        &__supported{
+            font-size: 0.7em;
+            margin-bottom: 2em;
+        }
+        
+        &__icon {
             width: 20%;
             opacity: 0.1;
             padding-top: 2em;
@@ -96,24 +109,26 @@
             margin : 1em auto 0.5em;
             cursor: pointer;
         }
-        &__input {
-            // display: none;
-            position: absolute;
-            left: 0;
-            top: 0;
+
+        output {
             height: 100%;
-            width: 100%;
-            opacity: 0;
-            cursor: pointer;
+            position: absolute;
+            border-radius: 5px;
+    
+            .image {
+                display: flex;
+                justify-content: center;
+                height: 100%;
+                overflow: hidden;
+                position: relative;
+    
+                img {
+                    object-fit: cover;
+                }
+            }
+    
         }
     }
-}
-
-#modal2-form {
-    margin: 2em 4em 0;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
 
     input,
     select {
@@ -121,12 +136,13 @@
         font-size: 1.2em;
         border: none;
         box-shadow: $box-shadow;
+        padding: 0 1em;
     }
     select {
         margin-bottom: 2em;
     }
     label {
-        margin: 2em 0 1em 0;
+        margin: 1em 0 0.6em 0;
     }
 
     hr {
@@ -135,5 +151,10 @@
     button {
         @include btn;
         background: #A7A7A7;
+
+        &:hover {
+            background: $color-primary;
+            transition: 200ms;
+        }
     }
 }

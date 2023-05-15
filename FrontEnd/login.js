@@ -42,14 +42,17 @@ async function fetchLogin() {
             alertMsg.innerText = 'Veuillez vérifier votre mot de passe'
             alertMsg.classList.add('alert')
             sessionStorage.setItem('token', undefined)
+            sessionStorage.setItem('auth', false)
         } else if (r.status === 404) { 
             alertMsg.innerText = 'Veuillez vérifier votre adresse mail'
             alertMsg.classList.add('alert')
             sessionStorage.setItem('token', undefined)
+            sessionStorage.setItem('auth', false)
         } else {
             // Si réussite
             const response = await r.json()
             sessionStorage.setItem('token', response.token)
+            sessionStorage.setItem('auth', true)
             // Redirection vers page d'accueil
             window.location.href = './index.html'
         }
@@ -57,7 +60,3 @@ async function fetchLogin() {
         console.log(e)
     }
 }
-
-
-// sophie.bluel@test.tld
-// S0phie
