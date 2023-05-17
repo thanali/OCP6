@@ -17,12 +17,12 @@ loginSubmit.addEventListener('click', (e) => {
 
 function submitLogin() {
     // console.log(loginForm.firstElementChild)
-    if (loginForm.firstElementChild.getAttribute('class', 'alertElement')) {
+    if (loginForm.firstElementChild.className === 'alertElement') {
         loginForm.firstElementChild.remove()
     }
     // Vérifie le cntenu des inputs
     if (email.value == "" || password.value == "") {
-        loginForm.prepend(alertElement('Veuillez renseigner votre email et mot de passe'))
+        loginForm.prepend(alertElement('Veuillez renseigner votre email et votre mot de passe'))
         password.style.border = "thick solid #f10707b3"
         email.style.border = "thick solid #f10707b3"
     } else {

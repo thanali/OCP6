@@ -60,6 +60,7 @@ export async function fetchPost(data) {
         if (!r.ok) {
             throw new Error('Erreur serveur', {cause: r})
         }
+        return r
     } catch (e) {
         modalForm.reset()
         modalImgOutput.innerHTML = ""

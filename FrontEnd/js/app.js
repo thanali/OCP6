@@ -165,11 +165,14 @@ modalImgInput.addEventListener('input', (e) => {
 modalImgInputTitle.addEventListener('focusin', () => modalImgInputTitle.style.border = "initial")
 modalImgCategory.addEventListener('focusin', () => modalImgCategory.style.border = "initial")
 
-modalForm.addEventListener('submit', async (e) => {
+modalForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    if (modalForm.firstElementChild.getAttribute('class', 'alertElement')) {
-        // modalForm.firstElementChild.remove()
-        console.log(modalForm.firstElementChild)
+    submitForm()
+})
+
+async function submitForm() {
+    if (modalForm.firstElementChild.className === 'alertElement') {
+        modalForm.firstElementChild.remove()
     }
     // Données du formulaire à traiter
     const image = modalImgInput.files[0]
@@ -205,4 +208,4 @@ modalForm.addEventListener('submit', async (e) => {
         modalImgInputTitle.style.border = "thick solid #f10707b3"
         modalImgCategory.style.border = "thick solid #f10707b3"
     }
-}) 
+}
