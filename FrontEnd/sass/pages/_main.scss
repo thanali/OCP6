@@ -41,10 +41,15 @@ main {
 		flex: 1;
 	}
 
-	img,
-	.edit-content {
-		margin: auto;
+	img {
+		display: flex;
+		justify-content: center;
 		width: 80%;
+	}
+
+	.edit-content {
+		justify-content: flex-start;
+		width: fit-content;
 	}
 
 	article {
@@ -52,6 +57,7 @@ main {
 		position: relative;
 
 		.edit-content{
+			width: fit-content;
 			position: absolute;
 			top: -5vw;
 		}
@@ -73,7 +79,7 @@ main {
 		justify-content: center;
 		gap: 2em;
 		margin-bottom: 4em;
-		margin-left: 12.5vw;
+		margin-left: 7.5vw;
 	}
 }
 .gallery {

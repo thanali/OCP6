@@ -58,6 +58,10 @@ table {
 }
 
 /** end reset css**/
+*:focus {
+  outline-color: #B1663C;
+}
+
 body {
   font-family: "Work Sans";
   font-size: 14px;
@@ -94,6 +98,8 @@ h2 {
 }
 
 .edit-content {
+  border: none;
+  background-color: transparent;
   cursor: pointer;
   display: flex;
   gap: 0.5em;
@@ -103,22 +109,31 @@ h2 {
   visibility: hidden;
 }
 
-/* Message d'alerte si chargement impossible des images */
-.alert {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Messages d'alerte JS */
+.alertElement {
   text-align: center;
   font-size: 1rem;
   color: #fffef6;
   font-weight: 800;
-  background-color: rgb(255, 149, 149);
+  background: rgba(241, 7, 7, 0.7019607843);
   border-radius: 10px;
   padding: 1rem;
   margin: 1vw 0;
 }
 
-/* Fin du message d'alerte */
+.success {
+  text-align: center;
+  font-size: 1rem;
+  color: #fffef6;
+  font-weight: 800;
+  background: rgba(241, 7, 7, 0.7019607843);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1vw 0;
+  background: #88dbcc;
+  color: white;
+}
+
 header,
 main {
   max-width: 1140px;
@@ -173,7 +188,7 @@ footer nav ul {
 #modal1,
 #modal2 {
   position: relative;
-  width: 45%;
+  width: 45vw;
   border: none;
   border-radius: 5px;
   background: #fff;
@@ -184,7 +199,9 @@ footer nav ul {
   background: rgba(0, 0, 0, 0.4);
 }
 
-.modal-gallery__close {
+.modal-gallery .modal-close {
+  border: none;
+  background: #fff;
   position: absolute;
   right: 1.5em;
   top: 1.5em;
@@ -205,23 +222,27 @@ footer nav ul {
 .modal-gallery__add {
   font-family: "Syne";
   font-weight: 700;
+  font-size: 1em;
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
-  padding: 0.6rem 1.8rem;
-  width: 12rem;
+  padding: 0.6rem;
+  width: 12vw;
   text-align: center;
   border: none;
   border-radius: 60px;
   white-space: nowrap;
   cursor: pointer;
-  margin: 1em auto;
+  width: 16vw;
+  margin: 2em auto 1.6em;
 }
 .modal-gallery__remove {
+  border: none;
+  background: #fff;
   font-weight: 400;
   color: #D65353;
-  margin: 0.5em 0 2em;
   cursor: pointer;
+  margin: 0 auto 1.5em;
 }
 
 .modal-gallery-content {
@@ -229,7 +250,7 @@ footer nav ul {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 0.5em;
   grid-row-gap: 1em;
-  margin: 2em 4em 4em;
+  margin: 2em 7em 4em;
   text-align: left;
 }
 .modal-gallery-content img {
@@ -239,6 +260,7 @@ footer nav ul {
   position: relative;
 }
 .modal-gallery-content figure .icon {
+  border: none;
   position: absolute;
   top: 5%;
   right: 5%;
@@ -253,7 +275,9 @@ footer nav ul {
   cursor: pointer;
 }
 
-.modal-add-picture__close {
+.modal-add-picture .modal-close {
+  border: none;
+  background: #fff;
   position: absolute;
   right: 1.5em;
   top: 1.5em;
@@ -272,6 +296,8 @@ footer nav ul {
   background: #B3B3B3;
 }
 .modal-add-picture__return {
+  border: none;
+  background: #fff;
   position: absolute;
   left: 1.5em;
   top: 1.5em;
@@ -288,7 +314,7 @@ footer nav ul {
 #modal2-form .add-image {
   position: relative;
   background: #E8F1F6;
-  height: 170px;
+  height: 18vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -311,11 +337,12 @@ footer nav ul {
 #modal2-form .add-image__label {
   font-family: "Syne";
   font-weight: 700;
+  font-size: 1em;
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
-  padding: 0.6rem 1.8rem;
-  width: 12rem;
+  padding: 0.6rem;
+  width: 12vw;
   text-align: center;
   border: none;
   border-radius: 60px;
@@ -364,11 +391,12 @@ footer nav ul {
 #modal2-form button {
   font-family: "Syne";
   font-weight: 700;
+  font-size: 1em;
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
-  padding: 0.6rem 1.8rem;
-  width: 12rem;
+  padding: 0.6rem;
+  width: 12vw;
   text-align: center;
   border: none;
   border-radius: 60px;
@@ -397,11 +425,12 @@ footer nav ul {
 .edition-banner button {
   font-family: "Syne";
   font-weight: 700;
+  font-size: 1em;
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
-  padding: 0.6rem 1.8rem;
-  width: 12rem;
+  padding: 0.6rem;
+  width: 12vw;
   text-align: center;
   border: none;
   border-radius: 60px;
@@ -431,16 +460,21 @@ main {
   gap: 1em;
   flex: 1;
 }
-#introduction img,
-#introduction .edit-content {
-  margin: auto;
+#introduction img {
+  display: flex;
+  justify-content: center;
   width: 80%;
+}
+#introduction .edit-content {
+  justify-content: flex-start;
+  width: fit-content;
 }
 #introduction article {
   flex: 1;
   position: relative;
 }
 #introduction article .edit-content {
+  width: fit-content;
   position: absolute;
   top: -5vw;
 }
@@ -457,7 +491,7 @@ main {
   justify-content: center;
   gap: 2em;
   margin-bottom: 4em;
-  margin-left: 12.5vw;
+  margin-left: 7.5vw;
 }
 
 .gallery {
@@ -520,14 +554,15 @@ main {
 #contact label {
   margin: 2em 0 1em 0;
 }
-#contact input[type=submit] {
+#contact button {
   font-family: "Syne";
   font-weight: 700;
+  font-size: 1em;
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
-  padding: 0.6rem 1.8rem;
-  width: 12rem;
+  padding: 0.6rem;
+  width: 12vw;
   text-align: center;
   border: none;
   border-radius: 60px;
@@ -567,14 +602,15 @@ main {
 .main-login label {
   margin: 2em 0 1em 0;
 }
-.main-login input[type=submit] {
+.main-login button {
   font-family: "Syne";
   font-weight: 700;
+  font-size: 1em;
   color: white;
   background-color: #1D6154;
   margin: 2em auto;
-  padding: 0.6rem 1.8rem;
-  width: 12rem;
+  padding: 0.6rem;
+  width: 12vw;
   text-align: center;
   border: none;
   border-radius: 60px;
@@ -582,13 +618,13 @@ main {
   cursor: pointer;
 }
 .main-login #login-window {
-  width: 380px;
+  width: 27em;
 }
 .main-login a {
   text-decoration: underline;
 }
 
-input {
+.login-form input {
   padding: 0 16px;
 }
 

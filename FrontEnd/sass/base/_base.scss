@@ -54,6 +54,12 @@ table {
 }
 /** end reset css**/
 
+* {
+	&:focus {
+		outline-color: $color-secondary;
+	}
+}
+
 body{
 	font-family: 'Work Sans';
 	font-size: 14px;
@@ -90,6 +96,8 @@ h2{
 }
 
 .edit-content {
+	border: none;
+	background-color: transparent;
 	cursor: pointer;
 	display: flex;
 	gap: 0.5em;
@@ -99,20 +107,13 @@ h2{
 	visibility: hidden;
 }
 
-
-/* Message d'alerte si chargement impossible des images */
-.alert {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	font-size: 1rem;
-	color: $color-background;
-	font-weight: 800;
-	background-color: rgb(255, 149, 149);
-	border-radius: 10px;
-	padding: 1rem;
-	margin: 1vw 0;
+/* Messages d'alerte JS */
+.alertElement {
+	@include alert-message;
 }
-/* Fin du message d'alerte */
 
+.success {
+	@include alert-message;
+	background: lighten($color-primary, 45%);
+	color: white;
+}
