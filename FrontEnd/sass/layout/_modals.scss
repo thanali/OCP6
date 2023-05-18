@@ -38,21 +38,25 @@
     figure {
         position: relative;
 
-        .icon {
+        .figure-button {
             border: none;
-            position: absolute;
-            top: 5%;
-            right: 5%;
             color: #fff;
             background: black;
             font-size: 0.7em;
-            padding: 0.3em;
+            padding: 0.3em 0.4em;
             border-radius: 2px;
             cursor: pointer;
         }
+        .delete {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
 
-        figcaption {
-            cursor: pointer;
+        .move {
+            position: absolute;
+            top: 5px;
+            right: 24px;
         }
     }
 }

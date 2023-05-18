@@ -100,6 +100,7 @@ h2 {
 .edit-content {
   border: none;
   background-color: transparent;
+  font-size: 1em;
   cursor: pointer;
   display: flex;
   gap: 0.5em;
@@ -259,20 +260,24 @@ footer nav ul {
 .modal-gallery-content figure {
   position: relative;
 }
-.modal-gallery-content figure .icon {
+.modal-gallery-content figure .figure-button {
   border: none;
-  position: absolute;
-  top: 5%;
-  right: 5%;
   color: #fff;
   background: black;
   font-size: 0.7em;
-  padding: 0.3em;
+  padding: 0.3em 0.4em;
   border-radius: 2px;
   cursor: pointer;
 }
-.modal-gallery-content figure figcaption {
-  cursor: pointer;
+.modal-gallery-content figure .delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.modal-gallery-content figure .move {
+  position: absolute;
+  top: 5px;
+  right: 24px;
 }
 
 .modal-add-picture .modal-close {
@@ -546,6 +551,7 @@ main {
   flex-direction: column;
 }
 #contact input {
+  padding: 0 16px;
   height: 50px;
   font-size: 1.2em;
   border: none;
@@ -594,6 +600,7 @@ main {
   flex-direction: column;
 }
 .main-login input {
+  padding: 0 16px;
   height: 50px;
   font-size: 1.2em;
   border: none;
@@ -622,10 +629,6 @@ main {
 }
 .main-login a {
   text-decoration: underline;
-}
-
-.login-form input {
-  padding: 0 16px;
 }
 
 /*# sourceMappingURL=style.css.map */

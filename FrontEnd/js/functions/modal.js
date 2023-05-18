@@ -16,10 +16,28 @@ export async function modalGalleryContent() {
         img.alt = work.title
         const figcaption = layout.querySelector('figcaption')
         figcaption.innerText = 'éditer'
-        const icon = layout.querySelector('.icon')
-        icon.setAttribute('id', work.id)
         // Mise en place du bouton supprimer
-        icon.addEventListener('click', async (e) => await deleteImg(e.target.parentNode.id))
+        const deleteButton = document.createElement('button')
+        deleteButton.classList.add('delete', 'figure-button')
+        deleteButton.setAttribute('id', work.id)
+        const iconDelete = document.createElement('i')
+        iconDelete.classList.add('fa-solid', 'fa-trash-can') 
+        deleteButton.addEventListener('click', async (e) => await deleteImg(e.target.parentNode.id))
+        deleteButton.append(iconDelete)
+        // Mise en place du bouton de déplacement
+        const moveButton = document.createElement('button')
+        moveButton.classList.add('move', 'figure-button')
+        moveButton.setAttribute('id', work.id)
+        const iconMove = document.createElement('i')
+        iconMove.classList.add('fa-solid', 'fa-arrows-up-down-left-right')
+        moveButton.append(iconMove)
+        moveButton.style.visibility = 'hidden'
+        figure.append(deleteButton, moveButton)
+        // Apparition du bouton de déplacement
+        figure.addEventListener('focusin', () => moveButton.style.visibility = 'visible')
+        figure.addEventListener('mouseover', () => moveButton.style.visibility = 'visible')
+        figure.addEventListener('mouseout', () => moveButton.style.visibility = 'hidden')
+        figure.addEventListener('focusout', () => moveButton.style.visibility = 'hidden')
         // Récupère le parent de l'objet
         modalGallery.append(figure)
     }
@@ -41,26 +59,3 @@ export async function modalSelectCategory() {
         document.querySelector('#category').append(option)
     }
 }
-
-
-
-
-// export class galleryDisplay {
-//     constructor (works) {
-//         for (let work of works) {
-//             this.layout = document.querySelector('#gallery-layout').content.cloneNode(true)
-//             this.figure = this.layout.querySelector('figure')
-//             this.figure.setAttribute('id', work.id)
-//             this.figure.dataset.categoryId = work.categoryId
-//             this.img = this.layout.querySelector('img')
-//             this.img.src = work.imageUrl
-//             this.img.alt = work.title
-//             this.figcaption = this.layout.querySelector('figcaption')
-//             this.figcaption.innerText = work.title  
-//             this.icon = this.layout.querySelector('.icon')
-//             this.icon.style = "display: none"
-//             document.querySelector('.gallery').append(this.figure)
-//         }
-//         console.log(this.figcaption.innerText)
-//     }
-// }

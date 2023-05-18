@@ -1,6 +1,6 @@
 
 import { alertElement, succesUpload } from "./functions/alert.js"
-import { fetchGet, fetchPost } from "./functions/api.js"
+import { fetchDelete, fetchGet, fetchPost } from "./functions/api.js"
 import { modalGalleryContent, modalSelectCategory } from "./functions/modal.js"
 
 
@@ -24,7 +24,9 @@ const modalImgCategory = modalForm.querySelector("#category")
 
 
 // Création de la galerie portofolio -------------------------------
-
+/**
+ * @param {Array} elements 
+ */
 async function galleryContent(elements) {
     const gallery = document.querySelector('.gallery')
     const works = await elements
@@ -40,9 +42,7 @@ async function galleryContent(elements) {
         img.src = work.imageUrl
         img.alt = work.title
         const figcaption = layout.querySelector('figcaption')
-        figcaption.innerText = work.title  
-        const icon = layout.querySelector('.icon')
-        icon.style = "display: none"
+        figcaption.innerText = work.title
         // Récupère le parent de l'objet
         document.querySelector('.gallery').append(figure)
     }
@@ -143,8 +143,28 @@ modal2.addEventListener('click', () => {
 modalAddPicture.addEventListener('click', (e) => e.stopPropagation())
 modalReturn.addEventListener('click', () => {
     modal2.close()
+    // Reset de la modal2 en cas d'arrêt en cours de remplissage de formulaire avec message d'erreur
+    modalForm.reset()
+    modalImgOutput.innerHTML = ""
+    document.querySelectorAll('.preview-off').forEach(el => {
+        el.style.visibility = 'visible'
+    })
+    modalImgInputTitle.style.border = "initial"
+    modalImgCategory.style.border = "initial"
+    if (modalForm.firstElementChild.className === 'alertElement') {
+        modalForm.firstElementChild.remove()
+    }
     modal1.showModal()
 })
+
+// Suppression de la galerie
+// document.querySelector('.modal-gallery__remove').addEventListener('click', (e) => {
+//     e.preventDefault()
+//     const modalGallery = document.querySelector('.modal-gallery-content')
+//     const figures = modalGallery.querySelectorAll('figure')
+//     figures.forEach(el => fetchDelete(el.id))
+//     modalGallery.innerHTML = ""
+// })
 
 // Display de l'image sélectionnée
 
@@ -162,15 +182,14 @@ modalImgInput.addEventListener('input', (e) => {
 
 // Traitement du formulaire d'envoi
 
-modalImgInputTitle.addEventListener('focusin', () => modalImgInputTitle.style.border = "initial")
-modalImgCategory.addEventListener('focusin', () => modalImgCategory.style.border = "initial")
-
 modalForm.addEventListener('submit', (e) => {
     e.preventDefault()
     submitForm()
 })
 
 async function submitForm() {
+    modalImgCategory.style.border = "initial"
+    modalImgInputTitle.style.border = "initial"
     if (modalForm.firstElementChild.className === 'alertElement') {
         modalForm.firstElementChild.remove()
     }
@@ -178,7 +197,7 @@ async function submitForm() {
     const image = modalImgInput.files[0]
     const title = modalImgInputTitle.value
     const category = modalImgCategory[modalImgCategory.selectedIndex].id
-    console.log(image, title, category)
+    // console.log(image, title, category)
 
     const data = new FormData()
     data.append('title', title)
@@ -200,7 +219,7 @@ async function submitForm() {
             modal2.close()
             modal1.showModal()
             modalGalleryContent(fetchGet('works'))
-        }, 800)
+        }, 1000)
     } else {
         // Affichage si formulaire pas rempli
         // console.log(modalForm.firstElementChild)
@@ -209,3 +228,26 @@ async function submitForm() {
         modalImgCategory.style.border = "thick solid #f10707b3"
     }
 }
+
+// Retire message et outline d'erreur
+modalImgInputTitle.addEventListener('focusin', () => {
+    modalImgInputTitle.style.border = "initial"
+    modalImgCategory.style.border = "initial"
+    if (modalForm.firstElementChild.className === 'alertElement') {
+        modalForm.firstElementChild.remove()
+    }
+})
+modalImgCategory.addEventListener('focusin', () => {
+    modalImgCategory.style.border = "initial"
+    modalImgInputTitle.style.border = "initial"
+    if (modalForm.firstElementChild.className === 'alertElement') {
+        modalForm.firstElementChild.remove()
+    }
+})
+document.querySelector('.add-image').addEventListener('click', () => {
+    modalImgCategory.style.border = "initial"
+    modalImgInputTitle.style.border = "initial"
+    if (modalForm.firstElementChild.className === 'alertElement') {
+        modalForm.firstElementChild.remove()
+    }
+})

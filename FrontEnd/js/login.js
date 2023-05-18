@@ -6,9 +6,21 @@ const loginSubmit = document.querySelector('.login-submit')
 const email = document.querySelector('#email')
 const password = document.querySelector('#password')
 
-
-email.addEventListener('focusin', () => email.style.border = "initial")
-password.addEventListener('focusin', () => password.style.border = "initial")
+// Retire message et outline d'erreur
+email.addEventListener('focusin', () => {
+    email.style.border = "initial"
+    password.style.border = "initial"
+    if (loginForm.firstElementChild.className === 'alertElement') {
+        loginForm.firstElementChild.remove()
+    }
+})
+password.addEventListener('focusin', () => {
+    email.style.border = "initial"
+    password.style.border = "initial"
+    if (loginForm.firstElementChild.className === 'alertElement') {
+        loginForm.firstElementChild.remove()
+    }
+})
 
 loginSubmit.addEventListener('click', (e) => {
     e.preventDefault()
@@ -68,3 +80,5 @@ async function login() {
         loginForm.prepend(alertElement(`Impossible de se connecter : "${e}"`))
     }
 }
+
+

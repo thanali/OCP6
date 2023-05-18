@@ -11,8 +11,8 @@ export function alertElement(message) {
 }
 
 export function succesUpload(message) {
-    const div = document.createElement('div')
-    div.setAttribute('class', 'success')
-    div.innerText = message
-    return div
+    const success = document.createElement('div')
+    success.setAttribute('class', 'success')
+    success.innerText = message
+    return success
 }
