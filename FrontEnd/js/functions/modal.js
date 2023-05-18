@@ -8,38 +8,39 @@ export async function modalGalleryContent() {
     for (let work of works) {
         // Recuperer template HTML d'un élément de la galerie et les enfants
         const layout = document.querySelector('#gallery-layout').content.cloneNode(true)
-        // Ajout des attributs et contenus
         const figure = layout.querySelector('figure')
-        figure.setAttribute('id', work.id)
         const img = layout.querySelector('img')
+        const figcaption = layout.querySelector('figcaption')
+        // Ajout des attributs et contenus
+        figure.setAttribute('id', work.id)
         img.src = work.imageUrl
         img.alt = work.title
-        const figcaption = layout.querySelector('figcaption')
         figcaption.innerText = 'éditer'
         // Mise en place du bouton supprimer
         const deleteButton = document.createElement('button')
+        const iconDelete = document.createElement('img')
         deleteButton.classList.add('delete', 'figure-button')
         deleteButton.setAttribute('id', work.id)
-        const iconDelete = document.createElement('i')
-        iconDelete.classList.add('fa-solid', 'fa-trash-can') 
+        iconDelete.src = '../assets/icons/bin-svgrepo-com.svg'
+        iconDelete.setAttribute('alt', 'icone poubelle')
         deleteButton.addEventListener('click', async (e) => await deleteImg(e.target.parentNode.id))
         deleteButton.append(iconDelete)
         // Mise en place du bouton de déplacement
         const moveButton = document.createElement('button')
+        const iconMove = document.createElement('i')
         moveButton.classList.add('move', 'figure-button')
         moveButton.setAttribute('id', work.id)
-        const iconMove = document.createElement('i')
         iconMove.classList.add('fa-solid', 'fa-arrows-up-down-left-right')
         moveButton.append(iconMove)
         moveButton.style.visibility = 'hidden'
+        // Rattache les éléments
         figure.append(deleteButton, moveButton)
+        modalGallery.append(figure)
         // Apparition du bouton de déplacement
         figure.addEventListener('focusin', () => moveButton.style.visibility = 'visible')
         figure.addEventListener('mouseover', () => moveButton.style.visibility = 'visible')
         figure.addEventListener('mouseout', () => moveButton.style.visibility = 'hidden')
         figure.addEventListener('focusout', () => moveButton.style.visibility = 'hidden')
-        // Récupère le parent de l'objet
-        modalGallery.append(figure)
     }
 }
 

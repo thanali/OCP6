@@ -43,9 +43,13 @@
             color: #fff;
             background: black;
             font-size: 0.7em;
-            padding: 0.3em 0.4em;
+            padding: 0.35em 0.45em;
             border-radius: 2px;
             cursor: pointer;
+
+            img {
+                width: 9px;
+            }
         }
         .delete {
             position: absolute;
@@ -150,6 +154,11 @@
     }
     select {
         margin-bottom: 2em;
+        appearance: none;
+        background-image: url(../../assets/icons/arrow_down.svg);
+        background-repeat: no-repeat;
+        background-position: calc(100% - 20px) center;
+        background-size: 10px;
     }
     label {
         margin: 1em 0 0.6em 0;
@@ -161,10 +170,6 @@
     button {
         @include btn;
         background: #A7A7A7;
-
-        &:hover {
-            background: $color-primary;
-            transition: 200ms;
-        }
+        cursor: default;
     }
 }

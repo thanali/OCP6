@@ -99,9 +99,13 @@ h2{
 	border: none;
 	background-color: transparent;
 	font-size: 1em;
+	font-family: 'Work Sans';
 	cursor: pointer;
 	display: flex;
 	gap: 0.5em;
+	&:hover {
+		color: $color-secondary;
+	}
 }
 
 .hidden {

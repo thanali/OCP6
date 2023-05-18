@@ -101,9 +101,13 @@ h2 {
   border: none;
   background-color: transparent;
   font-size: 1em;
+  font-family: "Work Sans";
   cursor: pointer;
   display: flex;
   gap: 0.5em;
+}
+.edit-content:hover {
+  color: #B1663C;
 }
 
 .hidden {
@@ -265,9 +269,12 @@ footer nav ul {
   color: #fff;
   background: black;
   font-size: 0.7em;
-  padding: 0.3em 0.4em;
+  padding: 0.35em 0.45em;
   border-radius: 2px;
   cursor: pointer;
+}
+.modal-gallery-content figure .figure-button img {
+  width: 9px;
 }
 .modal-gallery-content figure .delete {
   position: absolute;
@@ -386,6 +393,11 @@ footer nav ul {
 }
 #modal2-form select {
   margin-bottom: 2em;
+  appearance: none;
+  background-image: url(../../assets/icons/arrow_down.svg);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 20px) center;
+  background-size: 10px;
 }
 #modal2-form label {
   margin: 1em 0 0.6em 0;
@@ -408,10 +420,7 @@ footer nav ul {
   white-space: nowrap;
   cursor: pointer;
   background: #A7A7A7;
-}
-#modal2-form button:hover {
-  background: #1D6154;
-  transition: 200ms;
+  cursor: default;
 }
 
 .edition-banner {
@@ -556,6 +565,7 @@ main {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  background: #fff;
 }
 #contact label {
   margin: 2em 0 1em 0;
@@ -605,6 +615,7 @@ main {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  background: #fff;
 }
 .main-login label {
   margin: 2em 0 1em 0;

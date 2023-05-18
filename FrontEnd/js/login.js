@@ -6,21 +6,6 @@ const loginSubmit = document.querySelector('.login-submit')
 const email = document.querySelector('#email')
 const password = document.querySelector('#password')
 
-// Retire message et outline d'erreur
-email.addEventListener('focusin', () => {
-    email.style.border = "initial"
-    password.style.border = "initial"
-    if (loginForm.firstElementChild.className === 'alertElement') {
-        loginForm.firstElementChild.remove()
-    }
-})
-password.addEventListener('focusin', () => {
-    email.style.border = "initial"
-    password.style.border = "initial"
-    if (loginForm.firstElementChild.className === 'alertElement') {
-        loginForm.firstElementChild.remove()
-    }
-})
 
 loginSubmit.addEventListener('click', (e) => {
     e.preventDefault()
@@ -28,10 +13,6 @@ loginSubmit.addEventListener('click', (e) => {
 })
 
 function submitLogin() {
-    // console.log(loginForm.firstElementChild)
-    if (loginForm.firstElementChild.className === 'alertElement') {
-        loginForm.firstElementChild.remove()
-    }
     // Vérifie le cntenu des inputs
     if (email.value == "" || password.value == "") {
         loginForm.prepend(alertElement('Veuillez renseigner votre email et votre mot de passe'))
@@ -81,4 +62,18 @@ async function login() {
     }
 }
 
-
+// Retire message et outline d'erreur
+email.addEventListener('focusin', () => {
+    email.style.border = "initial"
+    password.style.border = "initial"
+    if (loginForm.firstElementChild.className === 'alertElement') {
+        loginForm.firstElementChild.remove()
+    }
+})
+password.addEventListener('focusin', () => {
+    email.style.border = "initial"
+    password.style.border = "initial"
+    if (loginForm.firstElementChild.className === 'alertElement') {
+        loginForm.firstElementChild.remove()
+    }
+})
