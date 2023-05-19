@@ -13,6 +13,10 @@
 	border-radius: 60px;
     white-space: nowrap;
     cursor: pointer;
+
+    @include mobil {
+        width: 16em;
+    }
 }
 
 @mixin form {
@@ -46,6 +50,10 @@
     button {
         @include btn
     }
+
+    @include mobil {
+        width: 90%;
+    }
 }
 
 @mixin modal {
@@ -58,6 +66,10 @@
 
     &::backdrop {
         background: rgba(0, 0, 0, .4);
+    }
+
+    @include mobil {
+        width: 90%;
     }
 }
 
@@ -95,4 +107,10 @@
 	border-radius: 10px;
 	padding: 1rem;
 	margin: 1vw 0;
+}
+
+@mixin mobil {
+    @media screen and (max-width: map-get($breakpoint, mobil)) {
+        @content
+    }
 }

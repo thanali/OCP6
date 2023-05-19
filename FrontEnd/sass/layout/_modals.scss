@@ -10,14 +10,17 @@
 
     &__add {
         @include btn;
-        width: 16vw;
+        width: 16em;
         margin: 2em auto 1.6em;
+
     }
 
     &__remove {
         border: none;
         background: #fff;
         font-weight: 400;
+        font-size: 1em;
+        font-family: 'Syne', sans-serif;
         color: #D65353;
         cursor: pointer;
         margin: 0 auto 1.5em;
@@ -43,12 +46,20 @@
             color: #fff;
             background: black;
             font-size: 0.7em;
-            padding: 0.35em 0.45em;
+            padding: 0.3em 0.4em 0.2em;
             border-radius: 2px;
             cursor: pointer;
 
             img {
                 width: 9px;
+
+                @include mobil {
+                    width: 0.8em;
+                }
+            }
+
+            @include mobil {
+                font-size: 1.5em;
             }
         }
         .delete {
@@ -61,7 +72,16 @@
             position: absolute;
             top: 5px;
             right: 24px;
+
+            @include mobil {
+                right: calc(0.8em + 24px);
+            }
         }
+    }
+
+    @include mobil {
+        grid-template-columns: 1fr 1fr;
+        margin: 1em 2em 2em;
     }
 }
 
@@ -122,6 +142,10 @@
             width: auto;
             margin : 1em auto 0.5em;
             cursor: pointer;
+
+            @include mobil {
+                width: 10em;
+            }
         }
 
         output {
@@ -141,6 +165,10 @@
                 }
             }
     
+        }
+
+        @include mobil {
+            height: 18em;
         }
     }
 
@@ -171,5 +199,9 @@
         @include btn;
         background: #A7A7A7;
         cursor: default;
+    }
+
+    @include mobil {
+        margin: 1em 2em 2em;
     }
 }

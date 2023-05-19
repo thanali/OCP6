@@ -1,3 +1,6 @@
+.login {
+    font-weight: 600;
+}
 
 .main-login{
     @include form;
@@ -12,5 +15,9 @@
 
     a {
         text-decoration: underline;
+    }
+
+    @include mobil {
+        width: initial;
     }
 }

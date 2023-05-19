@@ -4,8 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Login</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<script src="https://kit.fontawesome.com/94aae47aee.js" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/css/style.css">
@@ -13,11 +12,13 @@
 <body>
     <header>
         <a href="./index.html"><h1>Sophie Bluel <span>Architecte d'intérieur</span></h1></a>
-        <nav>
+        <nav class="navbar">
+            <label for="toggle" class="navbar-toggle"><i class="fa-solid fa-bars"></i></label>
+			<input type="checkbox" name="toggle" id="toggle">
             <ul>
-                <li>projets</li>
-                <li>contact</li>
-                <li>login</li>
+				<li><a href="index.html#portfolio">projets</a></li>
+				<li><a href="index.html#contact">contact</a></li>
+				<li class="login"><a href="./login.html" id="log">login</a></li>
                 <li><img class="insta" src="./assets/icons/instagram.png" alt="Instagram"></li>
             </ul>
         </nav>

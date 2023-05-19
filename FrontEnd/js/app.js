@@ -69,7 +69,7 @@ async function createFilter() {
 }
 
 async function filterEvent(e) {
-    const gallery = document.querySelector(".gallery")
+    const gallery = document.querySelector('.gallery')
     // Mise en place de la classe CSS sur le bouton actif
     e.target.parentElement.querySelector('.btn-active')
         .classList.remove('btn-active')
@@ -176,12 +176,20 @@ modalImgInput.addEventListener('input', (e) => {
     })
 })
 
-// Si tous les champs sont remplis, changement de couleur du bouton
+// Traitement des erreurs et bouton de validation
 modalForm.addEventListener("change", () => {
+    // Retire alertes si erreurs de remplissage de formulaire
+    modalImgDisplay.style.border = "initial"
+    modalImgInputTitle.style.border = "initial"
+    modalImgCategory.style.border = "initial"
+    if (modalForm.firstElementChild.className === 'alertElement') {
+        modalForm.firstElementChild.remove()
+    }
+    // Change l'aspect du bouton valider si tous les champs sont remplis
     if (modalImgInputTitle.value !== "" && modalImgCategory.value !== "" && modalImgInput.value !== "" ) {
         // console.log(modalImgInputTitle.value, modalImgCategory.value, modalImgInput.value)
-        submit.style.backgroundColor = '#1D6154'
-        submit.style.cursor = "pointer"
+        submit.style.backgroundColor = "#1D6154"
+        submit.style.cursor = "initial"
     }
 })
 
@@ -210,7 +218,7 @@ async function submitForm() {
         // rechargement dynamique des modales
         setTimeout(() => {
             document.querySelectorAll('.preview-off').forEach(el => {
-                el.style.visibility = 'visible'
+                el.style.visibility = "visible"
             })
             submit.style.backgroundColor = ''
             modalForm.reset()
@@ -228,29 +236,3 @@ async function submitForm() {
         modalImgDisplay.style.border = "thick solid #f10707b3"
     }
 }
-
-// Retire message et outline d'erreur
-modalImgInputTitle.addEventListener('focusin', () => {
-    modalImgDisplay.style.border = "initial"
-    modalImgInputTitle.style.border = "initial"
-    modalImgCategory.style.border = "initial"
-    if (modalForm.firstElementChild.className === 'alertElement') {
-        modalForm.firstElementChild.remove()
-    }
-})
-modalImgCategory.addEventListener('focusin', () => {
-    modalImgDisplay.style.border = "initial"
-    modalImgCategory.style.border = "initial"
-    modalImgInputTitle.style.border = "initial"
-    if (modalForm.firstElementChild.className === 'alertElement') {
-        modalForm.firstElementChild.remove()
-    }
-})
-modalImgDisplay.addEventListener('click', () => {
-    modalImgDisplay.style.border = "initial"
-    modalImgCategory.style.border = "initial"
-    modalImgInputTitle.style.border = "initial"
-    if (modalForm.firstElementChild.className === 'alertElement') {
-        modalForm.firstElementChild.remove()
-    }
-})
