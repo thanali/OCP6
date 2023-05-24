@@ -1,7 +1,18 @@
-import { fetchDelete, fetchGet } from "./api.js"
+// Imports
+import { alertElement, alertStyleInput, succesUpload } from "./alert.js"
+import { fetchDelete, fetchGet, fetchPost } from "./api.js"
 
+const modalForm = modal2.querySelector('#modal2-form')
 const modalGallery = document.querySelector('.modal-gallery-content')
+const modalImgInput = modalForm.querySelector('#add-image__input')
+const modalImgOutput = modalForm.querySelector('output')
+const modalImgInputTitle = modalForm.querySelector("#title")
+const modalImgCategory = modalForm.querySelector("#category")
+const modalImgDisplay = modalForm.querySelector('.add-image')
+const submit = modalForm.querySelector('.form-submit')
 
+
+// Création du contenu de la galerie de la modale
 export async function modalGalleryContent() {
     modalGallery.innerHTML = ""
     let works = await fetchGet('works')
@@ -29,7 +40,6 @@ export async function modalGalleryContent() {
         const moveButton = document.createElement('button')
         const iconMove = document.createElement('i')
         moveButton.classList.add('move', 'figure-button')
-        moveButton.setAttribute('id', work.id)
         iconMove.classList.add('fa-solid', 'fa-arrows-up-down-left-right')
         moveButton.append(iconMove)
         moveButton.style.visibility = 'hidden'
@@ -44,13 +54,14 @@ export async function modalGalleryContent() {
     }
 }
 
+// Suppression des éléments
 async function deleteImg (itemId) {
     fetchDelete(itemId)
-    modalGallery.innerHTML = ""
     let works = await fetchGet('works')
     modalGalleryContent(works)
 }
 
+// Création dynamique des catégories dans les options select
 export async function modalSelectCategory() {
     let categories = await fetchGet('categories')
     for (let category of categories) {
@@ -58,5 +69,44 @@ export async function modalSelectCategory() {
         option.innerText = category.name
         option.id = category.id
         document.querySelector('#category').append(option)
+    }
+}
+
+// Traitement du formulaire d'envoi du formulaire
+export async function submitForm() {
+    // Données du formulaire à traiter
+    const image = modalImgInput.files[0]
+    const title = modalImgInputTitle.value
+    const category = modalImgCategory[modalImgCategory.selectedIndex].id
+    // console.log(image, title, category)
+    const data = new FormData()
+    data.append('title', title)
+    data.append('image', image)
+    data.append('category', category)
+
+    if (title !== "" && category !== "" && image.size <= 4000000) {
+        // console.log(image.size)
+        // Si les datas sont valides
+        await fetchPost(data)
+        modalForm.prepend(succesUpload("Succès de l'ajout à la galerie"))
+        // rechargement dynamique des modales
+        setTimeout(() => {
+            document.querySelectorAll('.preview-off').forEach(el => {
+                el.style.visibility = "visible"
+            })
+            submit.style.backgroundColor = ''
+            modalForm.reset()
+            modalForm.firstElementChild.remove()
+            modalImgOutput.innerHTML = ""
+            modal2.close()
+            modal1.showModal()
+            modalGalleryContent(fetchGet('works'))
+        }, 2000)
+    } else {
+        // Affichage si formulaire pas entièrement rempli
+        modalForm.prepend(alertElement('Veuillez vérifier que tous les champs sont remplis'))
+        alertStyleInput(modalImgInputTitle)
+        alertStyleInput(modalImgCategory)
+        alertStyleInput(modalImgDisplay)
     }
 }

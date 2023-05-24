@@ -307,8 +307,9 @@ footer nav ul {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 0.5em;
   grid-row-gap: 1em;
-  margin: 2em 7em 4em;
+  margin: 2em auto 4em;
   text-align: left;
+  width: 80%;
 }
 .modal-gallery-content img {
   width: 100%;
@@ -318,10 +319,11 @@ footer nav ul {
 }
 .modal-gallery-content figure .figure-button {
   border: none;
+  width: 17px;
+  height: 17px;
   color: #fff;
   background: black;
-  font-size: 0.7em;
-  padding: 0.3em 0.4em 0.2em;
+  padding: 0.1em;
   border-radius: 2px;
   cursor: pointer;
 }
@@ -336,6 +338,9 @@ footer nav ul {
 @media screen and (max-width: 745px) {
   .modal-gallery-content figure .figure-button {
     font-size: 1.5em;
+    width: 32px;
+    height: 32px;
+    padding: auto;
   }
 }
 .modal-gallery-content figure .delete {
@@ -348,6 +353,14 @@ footer nav ul {
   top: 5px;
   right: 24px;
 }
+.modal-gallery-content figure .move i {
+  font-size: 0.9em;
+}
+@media screen and (max-width: 745px) {
+  .modal-gallery-content figure .move i {
+    font-size: inherit;
+  }
+}
 @media screen and (max-width: 745px) {
   .modal-gallery-content figure .move {
     right: calc(0.8em + 24px);
@@ -356,7 +369,7 @@ footer nav ul {
 @media screen and (max-width: 745px) {
   .modal-gallery-content {
     grid-template-columns: 1fr 1fr;
-    margin: 1em 2em 2em;
+    margin: 1em auto 2em;
   }
 }
 
@@ -592,7 +605,7 @@ main {
   #introduction figure {
     align-items: center;
     gap: 0.5em;
-    flex-direction: column-reverse;
+    margin-bottom: 2em;
   }
 }
 #introduction img {
@@ -613,17 +626,18 @@ main {
 #introduction article .edit-content {
   width: fit-content;
   position: absolute;
-  top: -5vw;
+  top: -2.5em;
 }
 @media screen and (max-width: 745px) {
   #introduction article .edit-content {
     top: initial;
-    position: initial;
+    bottom: -2em;
   }
 }
 @media screen and (max-width: 745px) {
   #introduction article {
     align-items: center;
+    margin-bottom: 3em;
   }
 }
 #introduction h2 {
@@ -656,7 +670,7 @@ main {
   #portfolio .title {
     flex-direction: column;
     margin: 0;
-    gap: 0.5em;
+    gap: 1em;
   }
 }
 
@@ -827,6 +841,9 @@ main {
 }
 .main-login a {
   text-decoration: underline;
+}
+.main-login button {
+  width: 12em;
 }
 @media screen and (max-width: 745px) {
   .main-login {

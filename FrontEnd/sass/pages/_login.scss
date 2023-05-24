@@ -17,6 +17,10 @@
         text-decoration: underline;
     }
 
+    button {
+        width: 12em;
+    }
+
     @include mobil {
         width: initial;
     }

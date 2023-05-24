@@ -1,3 +1,4 @@
+// Imports
 import { alertElement } from "./alert.js"
 
 
@@ -17,6 +18,29 @@ export async function fetchGet(log) {
         // Si fetch ne fonctionne pas, message d'erreur avec la création d'un nouveau bloc
         document.querySelector('#portfolio')
             .prepend(alertElement(`Impossible de charger les éléments : "${e}"`))
+    }
+}
+
+
+// Fetch POST pour la connexion
+export async function fetchLogin() {
+    try {
+        const r = await fetch("http://" + window.location.hostname + ":5678/api/users/login", {
+            method: "POST",
+            headers: { 
+                Accept: "application/json",
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "email": email.value,
+                "password": password.value
+            })
+        })
+        return r
+    } catch(e) {
+        const loginForm = document.querySelector('.login-form')
+        loginForm.reset()
+        loginForm.prepend(alertElement(`Impossible de se connecter : "${e}"`))
     }
 }
 
