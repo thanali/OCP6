@@ -21,6 +21,7 @@ h1 > span {
 	text-transform: uppercase;
 }
 
+// Barre de navigation
 .navbar {
 	position: relative;
 	display: flex;
@@ -75,6 +76,7 @@ h1 > span {
 		@include mobil {
 			&:checked + ul {
 				max-height: 200px;
+				align-items: flex-end;
 			}
 		}
 	}

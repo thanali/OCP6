@@ -1,5 +1,4 @@
-
-// Bloc affiché au log in
+// Bannière d'édition affichée au login
 .edition-banner {
 	display: none;
 	justify-content: center;
@@ -41,6 +40,7 @@ main {
 	padding: 0 30px;
 }
 
+// Introduction
 #introduction {
 	display: flex;
 	align-items: center;
@@ -110,6 +110,7 @@ main {
 	}
 }
 
+// Portfolio
 #portfolio {
 	.title {
 		display: flex;
@@ -169,8 +170,6 @@ main {
 		flex-wrap: wrap;
 	}
 }
-
-/* Fin Filtres */
 
 #contact {
 	@include form;

@@ -1,4 +1,4 @@
-
+// Boutons
 @mixin btn {
     font-family: 'Syne';
 	font-weight: 700;
@@ -19,6 +19,7 @@
     }
 }
 
+// Formulaires
 @mixin form {
     width: 50%;
     margin: auto;
@@ -56,6 +57,7 @@
     }
 }
 
+// Mise en forme modales
 @mixin modal {
     position: relative;
     width: 45vw;
@@ -73,6 +75,7 @@
     }
 }
 
+// Mise en forme intérieur modales
 @mixin inner-modal {
     .modal-close {
         border: none;
@@ -98,6 +101,7 @@
     }
 }
 
+// Alertes JS
 @mixin alert-message {
 	text-align: center;
 	font-size: 1rem;
@@ -109,8 +113,9 @@
 	margin: 1vw 0;
 }
 
+// Media query pour mobile
 @mixin mobil {
-    @media screen and (max-width: map-get($breakpoint, mobil)) {
+    @media screen and (max-width: 745px) {
         @content
     }
 }

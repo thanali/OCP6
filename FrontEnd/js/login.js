@@ -50,7 +50,7 @@ async function login() {
     }
 }
 
-// Retire message et outline d'erreur
+// Retrait message et outline d'erreur
 loginForm.addEventListener('focusin', () => {
     email.style.border = "initial"
     password.style.border = "initial"

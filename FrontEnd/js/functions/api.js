@@ -86,6 +86,8 @@ export async function fetchPost(data) {
         }
         return r
     } catch (e) {
+        const modalForm = modal2.querySelector('#modal2-form')
+        const modalImgOutput = modalForm.querySelector('output')
         modalForm.reset()
         modalImgOutput.innerHTML = ""
         modalForm.prepend(alertElement(`Impossible de créer l'élément : "${e}"`))

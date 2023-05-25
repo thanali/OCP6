@@ -34,7 +34,10 @@ export async function modalGalleryContent() {
         deleteButton.setAttribute('id', work.id)
         iconDelete.src = '../assets/icons/bin-svgrepo-com.svg'
         iconDelete.setAttribute('alt', 'icone poubelle')
-        deleteButton.addEventListener('click', async (e) => await deleteImg(e.target.parentNode.id))
+        deleteButton.addEventListener('click', (e) => {
+            e.preventDefault()
+            deleteImg(e.target.parentNode.id)
+        })
         deleteButton.append(iconDelete)
         // Mise en place du bouton de déplacement
         const moveButton = document.createElement('button')
@@ -47,10 +50,8 @@ export async function modalGalleryContent() {
         figure.append(deleteButton, moveButton)
         modalGallery.append(figure)
         // Apparition du bouton de déplacement
-        figure.addEventListener('focusin', () => moveButton.style.visibility = 'visible')
         figure.addEventListener('mouseover', () => moveButton.style.visibility = 'visible')
         figure.addEventListener('mouseout', () => moveButton.style.visibility = 'hidden')
-        figure.addEventListener('focusout', () => moveButton.style.visibility = 'hidden')
     }
 }
 
@@ -102,6 +103,13 @@ export async function submitForm() {
             modal1.showModal()
             modalGalleryContent(fetchGet('works'))
         }, 2000)
+    } else if (title !== "" && category !== "" && image.size > 4000000) {
+        modalForm.prepend(alertElement('Veuillez vérifier la taille du fichier'))
+        alertStyleInput(modalImgDisplay)
+        modalImgOutput.innerHTML = ""
+        document.querySelectorAll('.preview-off').forEach(el => {
+            el.style.visibility = 'visible'
+        })
     } else {
         // Affichage si formulaire pas entièrement rempli
         modalForm.prepend(alertElement('Veuillez vérifier que tous les champs sont remplis'))

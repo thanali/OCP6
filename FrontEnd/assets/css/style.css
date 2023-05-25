@@ -208,6 +208,7 @@ h1 > span {
 @media screen and (max-width: 745px) {
   .navbar #toggle:checked + ul {
     max-height: 200px;
+    align-items: flex-end;
   }
 }
 
@@ -284,7 +285,7 @@ footer nav ul {
   white-space: nowrap;
   cursor: pointer;
   width: 16em;
-  margin: 2em auto 1.6em;
+  margin: 2em auto 1.5em;
 }
 @media screen and (max-width: 745px) {
   .modal-gallery__add {
@@ -296,7 +297,6 @@ footer nav ul {
   background: #fff;
   font-weight: 400;
   font-size: 1em;
-  font-family: "Syne", sans-serif;
   color: #D65353;
   cursor: pointer;
   margin: 0 auto 1.5em;
@@ -309,7 +309,7 @@ footer nav ul {
   grid-row-gap: 1em;
   margin: 2em auto 4em;
   text-align: left;
-  width: 80%;
+  width: 75%;
 }
 .modal-gallery-content img {
   width: 100%;
@@ -327,14 +327,6 @@ footer nav ul {
   border-radius: 2px;
   cursor: pointer;
 }
-.modal-gallery-content figure .figure-button img {
-  width: 9px;
-}
-@media screen and (max-width: 745px) {
-  .modal-gallery-content figure .figure-button img {
-    width: 0.8em;
-  }
-}
 @media screen and (max-width: 745px) {
   .modal-gallery-content figure .figure-button {
     font-size: 1.5em;
@@ -347,6 +339,16 @@ footer nav ul {
   position: absolute;
   top: 5px;
   right: 5px;
+}
+.modal-gallery-content figure .delete img {
+  width: 9px;
+  padding-bottom: 1px;
+}
+@media screen and (max-width: 745px) {
+  .modal-gallery-content figure .delete img {
+    width: 0.8em;
+    padding-bottom: initial;
+  }
 }
 .modal-gallery-content figure .move {
   position: absolute;
@@ -468,6 +470,7 @@ footer nav ul {
   height: 100%;
   position: absolute;
   border-radius: 5px;
+  width: 100%;
 }
 #modal2-form .add-image output .image {
   display: flex;
@@ -719,7 +722,6 @@ main {
   }
 }
 
-/* Fin Filtres */
 #contact {
   width: 50%;
   margin: auto;

@@ -11,12 +11,13 @@
 </head>
 <body>
 
-	<!-- Bannière de login -->
+	<!------- Bannière d'édition -------->
 	<aside class="edition-banner">
 		<p class="edit-content"><i class="fa-regular fa-pen-to-square"></i>Mode édition</p>
 		<button>publier les changements</button>
 	</aside>
 
+	<!---------- Header ----------->
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 		<nav class="navbar">
@@ -53,7 +54,7 @@
 				<div class="add-image">
 					<img class="add-image__icon preview-off" src="./assets/icons/picture-svgrepo-com.svg" alt="icone image">
 					<label for="add-image__input" class="add-image__label preview-off">+ Ajouter photo</label>
-					<input type="file" accept=".png, .jpg" class="add-image__input" id="add-image__input" name="image">
+					<input type="file" accept=".png, .jpg, .jpeg" class="add-image__input" id="add-image__input" name="image">
 					<p class="add-image__supported preview-off">jpg, png : 4mo max</p>
 					<output></output>
 				</div>
@@ -70,6 +71,8 @@
 	</dialog>
 
 	<main>
+
+		<!------- Introduction -------->
 		<section id="introduction">
 			<figure>
 				<img src="./assets/images/sophie-bluel.png" alt="">
@@ -83,6 +86,8 @@
 				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 			</article>
 		</section>
+
+		<!------- Portfolio -------->
 		<section id="portfolio">
 
 			<div class="title">
@@ -98,22 +103,9 @@
 			<!-- Bloc contenant la galerie d'images -->
 			<div class="gallery">
 			</div>
-
-			<!-- Template des boutons filtres-->
-			<template id="btn-filter">
-				<button type="button" class="btn"></button>
-			</template>
-
-			<!-- Template des éléments des galeries d'images -->
-			<template id="gallery-layout">
-				<figure>
-					<img src="" alt="">
-					<figcaption></figcaption>
-				</figure>
-			</template>
-
 		</section>
 		
+		<!------- Contact -------->
 		<section id="contact">
 			<h2>Contact</h2>
 			<p>Vous avez un projet ? Discutons-en !</p>
@@ -129,6 +121,7 @@
 		</section>
 	</main>
 
+	<!----------- Footer ------------>
 	<footer>
 		<nav>
 			<ul>
@@ -136,6 +129,21 @@
 			</ul>
 		</nav>
 	</footer>
+
+	<!------------ Templates ------------>
+
+	<!-- Template des boutons filtres-->
+	<template id="btn-filter">
+		<button type="button" class="btn"></button>
+	</template>
+
+	<!-- Template des éléments des galeries d'images -->
+	<template id="gallery-layout">
+		<figure>
+			<img src="" alt="">
+			<figcaption></figcaption>
+		</figure>
+	</template>
 
 	<script src="./js/app.js" type="module"></script>
 </body>

@@ -61,42 +61,40 @@ modal1.addEventListener('click', () => {
     modal1.close()
     location.reload()
 })
+modal2.addEventListener('click', () => {
+    modal2.close()
+    location.reload()
+})
 // Évite l'appel au listener quand on clique sur le contenu
 modalGallery.addEventListener('click', (e) => e.stopPropagation())
+modalAddPicture.addEventListener('click', (e) => e.stopPropagation())
 
 modal1.querySelector('.modal-gallery__add').addEventListener('click', () => {
     modal1.close()
     modal2.showModal()
 })
-modal2.addEventListener('click', () => {
-    modal2.close()
-    location.reload()
-})
-modalAddPicture.addEventListener('click', (e) => e.stopPropagation())
-
+// Événement au click sur la flèche retour
 modal2.querySelector('.modal-add-picture__return').addEventListener('click', () => {
     modal2.close()
     // Reset de la modal2 en cas d'arrêt en cours de remplissage de formulaire et message d'erreur
     modalForm.reset()
     modalImgOutput.innerHTML = ""
-    // Remet la couleur initiale du bouton de validation
-    submit.style.backgroundColor = ""
-    document.querySelectorAll('.preview-off').forEach(el => {
-        el.style.visibility = 'visible'
-    })
     modalImgInputTitle.style.border = "initial"
     modalImgCategory.style.border = "initial"
     if (modalForm.firstElementChild.className === 'alertElement') {
         modalForm.firstElementChild.remove()
     }
+    // Remet la couleur initiale du bouton de validation
+    submit.style.backgroundColor = ""
+    document.querySelectorAll('.preview-off').forEach(el => {
+        el.style.visibility = 'visible'
+    })
     modal1.showModal()
 })
 
+// Modale 1 ----------------------------------------------------
 // Création du contenu de la galerie modale
 modalGalleryContent()
-
-// Mis en place des catégories dans les options de sélection
-modalSelectCategory()
 
 // Suppression de la galerie de la modale
 document.querySelector('.modal-gallery__remove').addEventListener('click', (e) => {
@@ -107,6 +105,7 @@ document.querySelector('.modal-gallery__remove').addEventListener('click', (e) =
     modalGallery.innerHTML = ""
 })
 
+// Modal2 -------------------------------------------------------
 // Affichage de l'image sélectionnée
 modalImgInput.addEventListener('input', (e) => {
     let img = URL.createObjectURL(e.target.files[0])
@@ -118,6 +117,9 @@ modalImgInput.addEventListener('input', (e) => {
         el.style.visibility = 'hidden'
     })
 })
+
+// Mis en place des catégories dans les options de sélection
+modalSelectCategory()
 
 // Événement à la soumission du formulaire
 modalForm.addEventListener('submit', (e) => {
