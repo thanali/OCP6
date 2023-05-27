@@ -81,6 +81,7 @@ modal2.querySelector('.modal-add-picture__return').addEventListener('click', () 
     modalImgOutput.innerHTML = ""
     modalImgInputTitle.style.border = "initial"
     modalImgCategory.style.border = "initial"
+    modalImgDisplay.style.border = "initial"
     if (modalForm.firstElementChild.className === 'alertElement') {
         modalForm.firstElementChild.remove()
     }
